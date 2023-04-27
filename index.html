@@ -1,0 +1,340 @@
+Skip to content
+Search or jump to…
+Pull requests
+Issues
+Codespaces
+Marketplace
+Explore
+ 
+@FADUL37 
+FADUL37
+/
+Fadul-Tarefas
+Public
+Cannot fork because you own this repository and are not a member of any organizations.
+Code
+Issues
+Pull requests
+Actions
+Projects
+Wiki
+Security
+Insights
+Settings
+Beta Try the new code view
+Fadul-Tarefas/index.html
+@FADUL37
+FADUL37 Update index.html
+…
+Latest commit 09c1ffc 21 minutes ago
+ History
+ 1 contributor
+291 lines (267 sloc)  8 KB
+ 
+
+
+
+
+
+<head>
+  
+  <button onclick="salvarDados()">Salvar dados</button>
+
+  <script>
+  function salvarDados() {
+    const tabela = document.querySelector('tbody');
+    const linhas = tabela.querySelectorAll('tr');
+    const dados = [];
+
+    linhas.forEach((linha) => {
+      const colunas = linha.querySelectorAll('td');
+      const registro = {};
+
+      colunas.forEach((coluna, index) => {
+        if (index === 0) {
+          registro['credor'] = coluna.innerText;
+        } else {
+          const input = coluna.querySelector('input');
+          registro[input.type] = input.checked || input.value;
+        }
+      });
+
+      dados.push(registro);
+    });
+
+    const json = JSON.stringify(dados, null, 2);
+    const blob = new Blob([json], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'dados.json';
+    link.click();
+    URL.revokeObjectURL(url);
+  }
+</script>
+
+  <style>
+    /* Definir cores personalizadas */
+:root {
+  --cor-primaria: #4CAF50;
+  --cor-secundaria: #FFFFFF;
+}
+
+/* Estilo da tabela */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+}
+
+th, td {
+  padding: 8px;
+  text-align: center;
+}
+
+th {
+  background-color: var(--cor-primaria);
+  color: var(--cor-secundaria);
+}
+
+body {
+ background-color: #BDFCBF;  
+}
+
+body {
+ background-image: url('C:/Users/souza.israel/Desktop/TESTE DADOS INTER/web6.JPG'); 
+ background-repeat: repeat;
+ background-attachment: fixed;
+ background-size: cover;
+ opacity: 0.9; 
+ filter: saturate(70%);
+}
+
+tr:nth-child(even) {
+  background-color: var(--cor-secundaria);
+}
+
+tr:hover {
+  background-color: #F5F5F5;
+}
+
+input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  padding: 0;
+  vertical-align: middle;
+}
+
+  </style>
+</head>
+
+<table class="table table-success table-light">
+  <thead class="thead-dark">
+    <tr>     
+      <th>CREDOR</th>
+      <th>FEITO</th>
+      <th>AUSENTE</th>
+      <th>LAYOUT 10</th>
+      <th>LAYOUT 16</th>
+      <th>LAYOUT 30</th>
+      <th>REJEIÇÃO</th>
+      <th>IMPORTAÇÃO FINALIZADA</th>
+      <th>DATA</th>
+      <th>FILTROS</th>
+      <th>REEX</th>
+      <th>RECEBA+</th> 
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>047</td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="datetime-local"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+    </tr>
+    <tr>
+      <td>048</td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="datetime-local"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+    </tr>
+    <tr>
+      <td>049</td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="datetime-local"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+    </tr>
+      <td>052-14122-Digital</td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="datetime-local"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      </tr>
+      <td>054</td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="datetime-local"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      </tr>
+      <td>058</td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="datetime-local"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      </tr>
+      <td>059</td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="datetime-local"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      </tr>
+      <td>061</td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="datetime-local"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      </tr>
+      <td>063</td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="datetime-local"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      </tr>
+      <td>065</td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="datetime-local"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      </tr>
+      <td>075</td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="datetime-local"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      </tr>
+      <tr>
+      <td>CNBA CIELO</td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>         
+      <td></td> 
+      <td></td>
+      <td></td>
+      <td></td>
+      <td><input type="checkbox"></td>
+      <td><input type="datetime-local"></td>
+      <td></td>
+      <td></td>
+      <td><input type="checkbox"></td>
+ 
+    </tr>
+       <tr>
+         <div style="float:left; margin-right:28;">
+        <textarea rows="4" cols="50">
+        Arquivos enviado OP....
+        </textarea>
+        </div>     
+      <td>ARQ CIELO OP</td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>            
+      <td></td> 
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td><input type="datetime-local"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+ 
+     
+    </tr>
+  </tbody>
+</table>
+Footer
+© 2023 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+Fadul-Tarefas/index.html at 09c1ffca35c70efe5caa417419ae91536cdca028 · FADUL37/Fadul-Tarefas
